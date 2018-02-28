@@ -1,0 +1,75 @@
+REVIEW - DELPH CONVERTER BOARD
+By Brian Grainger
+
+Delph Electronics Ltd.,
+4, Deeping Rd., Baston, Peterborough
+Tel. 07786 535
+
+I must at the outset of this review declare an interest,
+have been slightly involved in the testing of the product
+and wrote the instructions so I will limit this review to
+an indication of what the product will do.
+For some time now there have been companies willing to
+convert FAT40 CBM machines to 8032 machines. Now Delph
+Electronics have provided the means to convert a 'thin' 40
+(9" screen) into an 8032. The hardware consists of a neat
+PCB which fits above the ROMs on the existing 4032 (or 3032
+upgraded to BASIC4) motherboard. The board plugs into the
+existing 1E 1 ROM socket and other connections go to the
+memory expansion connectors and the character generator.
+All connectors are provided and are simple to make. The
+character generator from the CBM is placed in the board.
+The software is a new 1E' ROM which is provided with the
+board.
+
+Having connected the board your 'thin' 40 will behave
+exactly like an 8032 with all its functions and mor"e.
+Because of differences between the CBM and business
+keyboards the latters new keys, such as 'Repeat' and
+'Escape' are accessed in a different way. However the
+software has been written to ensure that all the graphic
+characters of the CBM are still accessible from the
+keyboard, something that the 8032 cannot do.
+All the functions of the 8032 are made available. The
+80 column display is very crisp. LISTings can be paused and
+restarted. Sreen windows can be set. Tabs can be set on the
+screen. Automatic indication of line end will be given via
+the bell (if user port sound is provided). All the
+additional screen editing commands are available, i.e.
+INST/DEL Line, ERASE Begin/End, SCROLL Up/Down, SET
+313
+Top/Bottom, Text/Graphic mode, Set/Reset Tab. A repeat key
+toggle is provided so that 'repeat' operates either on
+cursor control and space keys only, or on all keys.
+One nice touch is that by use of the technique of
+multiple key press detection (See Vol.5 No.1 p.81) all the
+additional screen editing commands are available from the
+keyboard. Something that is not completely possible on the
+8032.
+
+The basic board is fitted with the capability of
+replacing the character generator with a 4K version. A
+software switch between either of the 2K character sets is
+provided. The 'E ' ROM of the basic board is fully decoded
+allowing a 4K. 'E ' ROM to be used provided locations
+reserved for I/O ports are not used.
+A number of versions of the board exist. Apart from
+the basic board described above a version exists which
+includes a 4K 'E' ROM, 4K character generator and RAM for
+an additional screen display (located at $8800-$8FFF). The
+extra 2K of character generator is used to store a
+mid-resolution character set which allows a plotting
+density of 160 x 200. Simple POKEs are used to switch
+between either the normal character generator or the
+mid-resolution characters. The additional screen memory can
+be used to store a second screen display or a
+mid-resolution plot. Part of the extra 2K in the 1E' ROM
+has been used to provide a 'flash' routine which very
+quickly alternates between the two screen displays with or
+without change of character set as well. This allows for
+example the possibility of a graph plot and annotated text
+to be mixed on screen.
+
+The cost of the basic board is £ 149 plus VAT, the
+enhanced version £ 160 plus VAT. Contact John Bickerstaff,
+Discounts Officer, for special ICPUG prices.
