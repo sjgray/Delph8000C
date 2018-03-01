@@ -25,28 +25,28 @@ Parts list
 
 Note: The PCB has no component identification. Part#'s have been assigned. Bypass capacitors not shown.
 
-U1 - HD46505 CRTC Controller
-U2 - 2532 EPROM, 4Kx8 containing 6502 code for Firmware.
-U3 - Header to PET motherboard 2332 Editor ROM socket
-U4 - SN74LS158N
-U5 - SN74LS158N
-U6 - SN74LS158N
-U7 - SN74LS373N
-U8 - SN74LS345N 
-U9 - HM6116P SRAM, 2Kx8 Character RAM
-U10- HM6116P SRAM, 2Kx8 Character RAM
-U11- 2532 EPROM, 4Kx8 containing PET and C64 Character Sets
-U12- SN74LS86N
-U13- 74LS166 Shift Register
-U14- SN74LS00N
-U15- 7425N
-U16- SN74LS86N
-U17- SN74LS163N
-U18- SN7404N
-U19- SN74LS04N
-U20- 74LS74AN
-U21- SN74LS10N
-U22- SN74LS20N
+U1 - HD46505	CRTC Controller
+U2 - 2532	EPROM, 4Kx8 containing 6502 code for Firmware.
+U3 - Header 	To PET motherboard 2332 Editor ROM socket
+U4 - SN74LS158N Quad 2-line to 1-line multiplexer
+U5 - SN74LS158N Quad 2-line to 1-line multiplexer
+U6 - SN74LS158N Quad 2-line to 1-line multiplexer
+U7 - SN74LS373N Octal transparent latch, three-state outputs
+U8 - SN74LS245N	Octal bus transceiver, non-inverting three-state outputs
+U9 - HM6116P 	SRAM, 2Kx8 Character RAM
+U10- HM6116P 	SRAM, 2Kx8 Character RAM
+U11- 2532 	EPROM 4Kx8 containing PET and C64 Character Sets
+U12- SN74LS86N 	Quad 2-input XOR gate
+U13- 74LS166	8-bit Shift Register
+U14- SN74LS00N	Quad 2-input NAND gate
+U15- 7425N	Dual 4-input NOR gate	
+U16- SN74LS86N	Quad 2-input XOR gate
+U17- SN74LS163N	Synchronous presettable 4-bit binary counter, synchronous clear
+U18- SN7404N	Hex inverter
+U19- SN74LS04N	Hex inverter
+U20- 74LS74AN	Dual D positive edge triggered flip-flop, asynchronous preset and clear	
+U21- SN74LS10N	Triple 3-input NAND gate
+U22- SN74LS20N	Dual 4-input NAND gate
 R1- Or,Wh,Bk
 R2- Vi,Vi,Vi
 R3- Vi,Vi,Vi
@@ -79,7 +79,7 @@ Board Layout
 |          O                                                                                   |
 | [P1]                                                                       --R1--            |
 |  O O   [U4---------]    [U5---------]    [U6---------]    [U7---------]    [U8---------]     |
-|  x x   [SN74LS158N ]    [SN74LS158N ]    [SN74LS158N ]    [SN74LS373N ]    [SN74LS345N ]     |
+|  x x   [SN74LS158N ]    [SN74LS158N ]    [SN74LS158N ]    [SN74LS373N ]    [SN74LS245N ]     |
 |  O O   [-----------]    [-----------]    [-----------]    [-----------]    [-----------]     |
 |  O O                                                                                         |
 |  O O                                                                                         |
