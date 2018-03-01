@@ -1,5 +1,5 @@
 Delph Electronics 8000C - Reverse Engineering Project by Steve J. Gray 
-=======================   Started: Feb 28, 2018. Last update: Feb 28, 2018
+=======================   Started: Feb 28, 2018. Last update: Mar 1, 2018
 
 *** NOTE: This is a work in progress!!! ***
 
@@ -15,11 +15,19 @@ Thanks to Bo Zimmerman for loan of the board.
 PCB Installation
 ================
 
-- The board plugs into the Editor ROM socket
-- PET compatible connector for PET Video cable
-- Dual 10-pin connector for flyouts to PET motherboard
-- Three standoffs to support board
+- The board plugs into the Editor ROM socket.
+- PET compatible connector for PET Video cable.
+- Dual 10-pin connector for flyouts to PET motherboard.
+- Three standoffs to support board.
 
+Flyouts
+=======
+
+Yellow..... To Character ROM pin-19 (A10, "graphics" select line).
+Orange..... To J9 Expansion pin-21  (C02, 1MHz clock line).
+Red........ To J9 Expansion pin-22  (BR/W, buffered read/write line).
+Brown...... To J4 Expansion pin-16  (/SEL8, video ram area select line).
+Pink....... Seems to be un-connected.
 Parts list
 ==========
 
@@ -27,33 +35,33 @@ Note: The PCB has no component identification. Part#'s have been assigned. Bypas
 
 U1 - HD46505	CRTC Controller
 U2 - 2532	EPROM, 4Kx8 containing 6502 code for Firmware.
-U3 - Header 	To PET motherboard 2332 Editor ROM socket
-U4 - SN74LS158N Quad 2-line to 1-line multiplexer
-U5 - SN74LS158N Quad 2-line to 1-line multiplexer
-U6 - SN74LS158N Quad 2-line to 1-line multiplexer
-U7 - SN74LS373N Octal transparent latch, three-state outputs
-U8 - SN74LS245N	Octal bus transceiver, non-inverting three-state outputs
-U9 - HM6116P 	SRAM, 2Kx8 Character RAM
-U10- HM6116P 	SRAM, 2Kx8 Character RAM
-U11- 2532 	EPROM 4Kx8 containing PET and C64 Character Sets
-U12- SN74LS86N 	Quad 2-input XOR gate
-U13- 74LS166	8-bit Shift Register
-U14- SN74LS00N	Quad 2-input NAND gate
-U15- 7425N	Dual 4-input NOR gate	
-U16- SN74LS86N	Quad 2-input XOR gate
-U17- SN74LS163N	Synchronous presettable 4-bit binary counter, synchronous clear
-U18- SN7404N	Hex inverter
-U19- SN74LS04N	Hex inverter
-U20- 74LS74AN	Dual D positive edge triggered flip-flop, asynchronous preset and clear	
-U21- SN74LS10N	Triple 3-input NAND gate
-U22- SN74LS20N	Dual 4-input NAND gate
-R1- Or,Wh,Bk
-R2- Vi,Vi,Vi
-R3- Vi,Vi,Vi
-R4- Vi,Vi,Vi
-R5- Ye,Vi,Br
-R6- Ye,Vi,Br
-R7- Or,Or,Ye
+U3 - Header 	To PET motherboard 2332 Editor ROM socket.
+U4 - SN74LS158N Quad 2-line to 1-line multiplexer.
+U5 - SN74LS158N Quad 2-line to 1-line multiplexer.
+U6 - SN74LS158N Quad 2-line to 1-line multiplexer.
+U7 - SN74LS373N Octal transparent latch, three-state outputs.
+U8 - SN74LS245N	Octal bus transceiver, non-inverting three-state outputs.
+U9 - HM6116P 	SRAM, 2Kx8 Character RAM.
+U10- HM6116P 	SRAM, 2Kx8 Character RAM.
+U11- 2532 	EPROM 4Kx8 containing PET and C64 Character Sets.
+U12- SN74LS86N 	Quad 2-input XOR gate.
+U13- 74LS166	8-bit Shift Register.
+U14- SN74LS00N	Quad 2-input NAND gate.
+U15- 7425N	Dual 4-input NOR gate.
+U16- SN74LS86N	Quad 2-input XOR gate.
+U17- SN74LS163N	Synchronous presettable 4-bit binary counter, synchronous clear.
+U18- SN7404N	Hex inverter.
+U19- SN74LS04N	Hex inverter.
+U20- 74LS74AN	Dual D positive edge triggered flip-flop, asynchronous preset and clear.
+U21- SN74LS10N	Triple 3-input NAND gate.
+U22- SN74LS20N	Dual 4-input NAND gate.
+R1- 39 ohms (Or,Wh,Bk)
+R2- 770M ohms (Vi,Vi,Vi)
+R3- 770M ohms (Vi,Vi,Vi)
+R4- 770M ohms (Vi,Vi,Vi)
+R5- 470 ohms  (Ye,Vi,Br)
+R6- 470 ohms  (Ye,Vi,Br)
+R7- 330K ohms (Or,Or,Ye)
 D1- C 102 (is this a capacitor?)
 C1- 15p
 C2- 22p
@@ -66,40 +74,69 @@ P2- 7-pin Header for PET Video connector to Monitor
 Board Layout
 ============
 
-      (H)=HOLE, O=PIN or WIRE PAD, x=NO PIN
+        (H)=HOLE, O=PIN or WIRE PAD, x=NO PIN
 
- ----------------------------------------------------------------------------------------------
-|                                                                                              |
-|                                               O O                          O O               |
-|        [U1----------------------------]       [U2--------------]    [U3--------------]       |
-|(H)     [                              ]       [                ]    [                ] O     |
-|        [   HD46505 CRTC Contoller     ]       [   2532 EPROM   ]    [  EMPTY SOCKET  ] O     |
-|        [                              ]       [      4Kx8      ]    [  HEADER TO PCB ]       |
-|        [------------------------------]       [----------------]    [----------------]       |
-|          O                                                                                   |
-| [P1]                                                                       --R1--            |
-|  O O   [U4---------]    [U5---------]    [U6---------]    [U7---------]    [U8---------]     |
-|  x x   [SN74LS158N ]    [SN74LS158N ]    [SN74LS158N ]    [SN74LS373N ]    [SN74LS245N ]     |
-|  O O   [-----------]    [-----------]    [-----------]    [-----------]    [-----------]     |
-|  O O                                                                                         |
-|  O O                                                                                         |
-|  O O                                                                      |                  |
-|  O O                                                                      R2   O O O         |
-|  O O                                                                      | [U12-------]     |
-|  O O   [U9--------------]    [U10-------------]    [U11-------------]       [SN74LS86N ]     |
-|  O O   [                ]    [                ]    [                ]       [----------]     |
-|        [  HM6116P SRAM  ]    [  HM6116P SRAM  ]    [   2532 EPROM   ]        O O O           |
-|        [      2Kx8      ]    [      2Kx8      ]    [      4Kx8      ]       [U13-------]     |
-|        [----------------]    [----------------]    [----------------]       [74LS166   ]     |
-| [P2]                                    O O O                               [----------]     |
-|    O                                                                                         |
-|    O   [U14-------]      [U15-------] |  [U16-------]    [U17-------]       [U18-------]     |
-|    O   [SN74LS00N ]      [7425N     ] R3 [SN74LS86N ]    [SN74LS163N]       [SN7404N   ]  (H)|
-|(H) O   [----------]      [----------] |  [----------]    [----------]       [----------]     |
-|    O                                                                                         |
-|    X                                                  |                  --R5--              |
-|    O   [U19-------]      [U20-------]    [U21-------] R4 [U22-------]    --R6--  C1 [VR1]    |
-|        [SN74LS04N ]      [74LS74AN  ]    [SN74LS10N ] |  [SN74LS20N ]    --R7--     [   ]    |
-|        [----------]      [----------]    [----------]    [----------]    --D1--  C2          |
-|                                                                                              |
- ----------------------------------------------------------------------------------------------
+         ----------------------------------------------------------------------------------------------
+        |                                                                                              |
+        |                                               O O                          O O               |
+        |        [U1----------------------------]       [U2--------------]    [U3--------------]       |
+        |(H)     [                              ]       [                ]    [                ] O     |
+        |        [    HD46505 CRTC Contoller    ]       [   2532 EPROM   ]    [  EMPTY SOCKET  ] O     |
+        |        [                              ]       [      4Kx8      ]    [  HEADER TO PCB ]       |
+        |        [------------------------------]       [----------------]    [----------------]       |
+        |          O                                                                                   |
+        | [P1]                                                                       --R1--            |
+YELLOW-----O-O   [U4---------]    [U5---------]    [U6---------]    [U7---------]    [U8---------]     |
+        |  x-x   [SN74LS158N ]    [SN74LS158N ]    [SN74LS158N ]    [SN74LS373N ]    [SN74LS245N ]     |
+ORANGE-----O-O   [-----------]    [-----------]    [-----------]    [-----------]    [-----------]     |
+        |  O-O                                                                                         |
+RED--------O-O                                                                                         |
+        |  O-O                                                                      |                  |
+BROWN------O-O                                                                      R2   O O O         |
+        |  O-O                                                                      | [U12-------]     |
+        |  O-O   [U9--------------]    [U10-------------]    [U11-------------]       [SN74LS86N ]     |
+PINK-------O-O   [                ]    [                ]    [                ]       [----------]     |
+        |        [  HM6116P SRAM  ]    [  HM6116P SRAM  ]    [   2532 EPROM   ]        O O O           |
+        |        [      2Kx8      ]    [      2Kx8      ]    [      4Kx8      ]       [U13-------]     |
+        |        [----------------]    [----------------]    [----------------]       [74LS166   ]     |
+        | [P2]                                    O O O                               [----------]     |
+        |    O                                                                                         |
+        |    O   [U14-------]      [U15-------] |  [U16-------]    [U17-------]       [U18-------]     |
+        |    O   [SN74LS00N ]      [7425N     ] R3 [SN74LS86N ]    [SN74LS163N]       [SN7404N   ]  (H)|
+        |(H) O   [----------]      [----------] |  [----------]    [----------]       [----------]     |
+        |    O                                                                                         |
+        |    X                                                  |                  --R5--              |
+        |    O   [U19-------]      [U20-------]    [U21-------] R4 [U22-------]    --R6--  C1 [VR1]    |
+        |        [SN74LS04N ]      [74LS74AN  ]    [SN74LS10N ] |  [SN74LS20N ]    --R7--     [   ]    |
+        |        [----------]      [----------]    [----------]    [----------]    --D1--  C2          |
+        |                                                                                              |
+         ----------------------------------------------------------------------------------------------
+
+
+Theory of Operation
+===================
+
+ The board plugs into the Editor ROM socket. This socket gives access to A0 to A11 of the CPU Address Bus.
+It has an empty socket that passes through all lines so an additional board could be mounted ontop.
+
+ It has it's own replacement Editor ROM chip, which is 4K in size so can hold additional code to support the
+board. Since I/O takes up 1 page of the $E address space that leaves 3.75K for code.
+
+It has flyouts to C02 (1MHz clock output), BR/W (buffered Read/Write), /SEL8 ($8000-$8FFF address range select),
+and to the Character ROM's A10 (graphics font select).
+
+ It contains a CRTC controller chip that runs independent of the PET's CRTC chip. This means it COULD be clocked
+differently to support 80 columns (TBD). There doesn't seem to be a pixel clock (16MHz is required to output
+80 columns). This CRTC chip must be mapped into the $E800-$E8FF range. The existing PET CRTC is located at
+$E880-$E88x using 2 registers to control the chip.
+
+ It contains a 4K Character ROM. This ROM contains the standard 2 PET character sets plus 2 C64 sets.
+
+ It has a header to connect the standard internal PET monitor connector for video output.
+
+
+
+
+
+
+
