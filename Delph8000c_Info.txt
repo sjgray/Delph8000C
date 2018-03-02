@@ -119,8 +119,8 @@ Theory of Operation
  The board plugs into the Editor ROM socket. This socket gives access to A0 to A11 of the CPU Address Bus.
 It has an empty socket that passes through all lines so an additional board could be mounted ontop.
 
- It has it's own replacement Editor ROM chip, which is 4K in size so can hold additional code to support the
-board. Since I/O takes up 1 page of the $E address space that leaves 3.75K for code.
+ It has it's own replacement Editor ROM chip, which is 4K in size. The lower 2K contain 80-column code and
+the upper 2K contain 40-column code. Somehow it switches between these two halves depending on the mode.
 
 It has flyouts to C02 (1MHz clock output), BR/W (buffered Read/Write), /SEL8 ($8000-$8FFF address range select),
 and to the Character ROM's A10 (graphics font select).
